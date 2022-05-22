@@ -96,3 +96,12 @@ FROM employees
 WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31') AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31')
 
 SELECT * FROM retirement_info;
+
+-- Making a table for the Sales team
+SELECT ei.emp_no, ei.first_name, ei.last_name, d.dept_name
+FROM emp_info AS ei
+	INNER JOIN dept_emp AS de
+		ON (ei.emp_no = de.emp_no)
+	INNER JOIN departments AS d
+		on (de.dept_no = d.dept_no)
+WHERE d.dept_name = 'Sales'
